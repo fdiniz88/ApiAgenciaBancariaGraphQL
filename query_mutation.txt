@@ -1,0 +1,26 @@
+
+
+
+
+
+mutation {
+  criarAgenciaBancaria(agenciaBancaria: { nome: "Nova Agência 2", endereco: "Rua Nova, 456" }) {
+    agenciaBancariaId
+    nome
+    endereco
+  }
+}
+
+POST https://localhost:44328 HTTP/1.1
+Content-Type: Application/json
+x-Request-Type: GraphQL
+
+
+mutation {
+  criarAgenciaBancaria(agenciaBancaria: { nome: "Nova Agência 2", endereco: "Rua Nova, 456" }) {
+    agenciaBancariaId
+    nome
+    endereco
+  }
+}
+

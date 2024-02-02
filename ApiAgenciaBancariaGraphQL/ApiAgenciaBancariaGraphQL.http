@@ -1,6 +1,10 @@
 @ApiAgenciaBancariaGraphQL_HostAddress = http://localhost:5253
 
-GET {{ApiAgenciaBancariaGraphQL_HostAddress}}/weatherforecast/
-Accept: application/json
 
-###
+POST https://localhost:44328 HTTP/1.1
+Content-Type: Application/json
+X-Request-Type: GraphQL
+
+mutation {
+  criarAgenciaBancaria (agenciaBancaria: { nome: "Nova Agência 2", endereco: "Rua Nova, 456" })
+  }

@@ -11,7 +11,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var connectionString = builder.Configuration.GetConnectionString("Sqlite");
-builder.Services.AddDbContext<AppDbContext>(opt => opt.UseSqlite(connectionString));
+builder.Services.AddDbContext<AppDbContext>(opt => opt.UseSqlite(connectionString), ServiceLifetime.Scoped);
 
 // Register custom services for the superheroes
 builder.Services.AddScoped<IContaBancariaRepository, ContaBancariaRepository>();
@@ -21,6 +21,8 @@ builder.Services.AddGraphQLServer().AddQueryType<Query>()
                                    .AddProjections()
                                    .AddFiltering()
                                    .AddSorting();
+
+builder.Services.AddGraphQLServer().AddMutationType<Mutation>();
 
 var app = builder.Build();
 
