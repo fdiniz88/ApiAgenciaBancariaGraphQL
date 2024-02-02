@@ -1,0 +1,6 @@
+@ApiAgenciaBancariaGraphQL_HostAddress = http://localhost:5253
+
+GET {{ApiAgenciaBancariaGraphQL_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
