@@ -1,26 +1,43 @@
-
-
-
-
-
 mutation {
   criarAgenciaBancaria(agenciaBancaria: { nome: "Nova Agência 2", endereco: "Rua Nova, 456" }) {
     agenciaBancariaId
     nome
     endereco
-  }
+  }}
+
+
+query{
+agenciaBancaria{ 
+    nome,
+    endereco  
+  } 
 }
 
-POST https://localhost:44328 HTTP/1.1
-Content-Type: Application/json
-x-Request-Type: GraphQL
+query{
+agenciaBancaria{ 
+    nome,
+    endereco,
+    contasBancarias{
+      numeroConta,
+      saldo
+    }       
+  } 
+}
 
 
-mutation {
-  criarAgenciaBancaria(agenciaBancaria: { nome: "Nova Agência 2", endereco: "Rua Nova, 456" }) {
-    agenciaBancariaId
-    nome
-    endereco
-  }
+query{
+agenciaBancaria{ 
+    nome,
+    endereco,
+    contasBancarias{
+      numeroConta,
+      saldo,
+      clientes{
+        nome,
+        sobrenome,
+        email
+      }      
+    }       
+  } 
 }
 

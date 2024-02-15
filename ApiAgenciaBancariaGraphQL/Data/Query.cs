@@ -4,9 +4,9 @@ namespace ApiAgenciaBancariaGraphQL.Data;
 
 public class Query
 {
-    [UseProjection]
+    [UseProjection]  
     [UseFiltering]
     [UseSorting]
-    public IQueryable<ContaBancaria> GetAgenciaBancaria([Service] AppDbContext context) =>
-        context.ContasBancaria;
+    public IQueryable<AgenciaBancaria> GetAgenciaBancaria([Service] AppDbContext context) =>
+        context.AgenciasBancaria;
 }

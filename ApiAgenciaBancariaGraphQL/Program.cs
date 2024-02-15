@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -13,7 +13,7 @@ builder.Services.AddSwaggerGen();
 var connectionString = builder.Configuration.GetConnectionString("Sqlite");
 builder.Services.AddDbContext<AppDbContext>(opt => opt.UseSqlite(connectionString), ServiceLifetime.Scoped);
 
-// Register custom services for the superheroes
+
 builder.Services.AddScoped<IContaBancariaRepository, ContaBancariaRepository>();
 builder.Services.AddScoped<IAgenciaBancariaRepository, AgenciaBancariaRepository>();
 builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
@@ -28,7 +28,7 @@ var app = builder.Build();
 
 CreateDatabase(app);
 
-// Configure the HTTP request pipeline.
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
